@@ -12,7 +12,7 @@ class Solution(object):
             elif nums[mid] == 1:
                 mid+=1
             elif nums[mid] == 2:
-                nums[high],nums[low]=nums[low],nums[high]
+                nums[high],nums[mid]=nums[mid],nums[high]
                 high-=1
         return nums            
 
