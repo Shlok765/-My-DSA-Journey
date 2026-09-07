@@ -1,0 +1,44 @@
+A linked list is a collection of nodes connected together. Each node stores two things: a value (the actual data) and a next reference (which points to the next node).
+
+Example:
+
+10 → 20 → 30 → 40 → None
+
+Creating a Node in Python
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+Creating a node:
+
+node1 = Node(10)
+
+This gives us a node containing 10, with next initially set to None.
+
+ Creating a Complete Linked List
+
+Create four nodes:
+
+node1 = Node(10)
+node2 = Node(20)
+node3 = Node(30)
+node4 = Node(40)
+
+Connect them:
+
+node1.next = node2
+node2.next = node3
+node3.next = node4
+
+Result:
+
+10 → 20 → 30 → 40 → None
+Understanding .value and .next
+
+node.value → gets the value stored in the node
+
+node.next → gets the next node
+
+For example, if node contains 10 and points to 20, node.value is 10 and node.next refers to the 20 node.
