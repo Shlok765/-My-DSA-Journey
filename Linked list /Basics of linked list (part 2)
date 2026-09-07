@@ -1,0 +1,110 @@
+Traversing a Linked List
+
+Traversal means visiting every node from the beginning to the end.
+
+Use a variable called current:
+
+current = node1
+
+while current is not None:
+    print(current.value)
+    current = current.next
+
+Output:
+
+10
+20
+30
+40
+
+Important line: current = current.next means “move to the next node.”
+What is head?
+
+head means the first node of the linked list. If we know head, we can reach every other node.
+
+Example:
+
+head → 10 → 20 → 30 → None
+
+Starting traversal:
+
+current = head
+
+Then keep moving with current = current.next.
+
+ Inserting a Node
+
+Suppose we have:
+
+10 → 20 → 30 → None
+
+We want to insert 15 between 10 and 20.
+
+Steps:
+
+new_node = Node(15)
+new_node.next = head.next
+head.next = new_node
+
+Result:
+
+10 → 15 → 20 → 30 → None
+
+General pattern for inserting after current:
+
+new_node.next = current.next
+current.next = new_node
+
+Important: connect the new node to the old next node BEFORE changing current.next, so the existing list is not lost.
+
+Deleting a Node
+
+Suppose we have:
+
+10 → 20 → 30 → None
+
+We want to delete 20.
+
+Make 10 point directly to 30:
+
+current.next = current.next.next
+
+Result:
+
+10 → 30 → None
+
+This works by skipping the node we want to remove.
+
+Deleting the First Node
+
+If the first node is 10:
+
+head → 10 → 20 → 30 → None
+
+Move head to the next node:
+
+head = head.next
+
+Result:
+
+head → 20 → 30 → None
+
+Most Important Things to Remember
+
+head = first node of the linked list.
+
+current = the node we are currently visiting.
+
+current.value = get the current node’s value.
+
+current.next = get the next node.
+
+current = current.next = move forward by one node.
+
+new_node.next = current.next = connect the new node to the rest of the list.
+
+current.next = new_node = connect current to the new node.
+
+current.next = current.next.next = skip/delete the next node.
+
+head = head.next = remove the first node.
