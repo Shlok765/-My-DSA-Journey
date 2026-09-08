@@ -1,0 +1,24 @@
+class Solution(object):
+    def isHappy(self, n):
+        def getNext(n):
+
+          
+            total = 0
+            while n > 0:
+                digit = n % 10
+                total += digit * digit 
+                n = n // 10 
+            return total 
+
+        slow = n
+        fast = n
+
+        while True :
+            slow = getNext(slow)
+            fast = getNext(getNext(fast))
+
+            if slow == fast :
+                break
+             
+        return slow == 1            
+        
