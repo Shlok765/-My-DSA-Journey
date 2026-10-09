@@ -1,0 +1,39 @@
+class Solution(object):
+    def removeNodes(self, head):
+        # Reverse the linked list
+        prev = None
+        curr = head
+
+        while curr:
+            next_node = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next_node
+
+        head = prev
+
+        # Remove nodes smaller than the maximum seen so far
+        maximum = float('-inf')
+        curr = head
+        prev = None
+
+        while curr:
+            if curr.val < maximum:
+                prev.next = curr.next
+            else:
+                maximum = curr.val
+                prev = curr
+
+            curr = curr.next
+
+        # Reverse the list back
+        prev = None
+        curr = head
+
+        while curr:
+            next_node = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next_node
+
+        return prev
